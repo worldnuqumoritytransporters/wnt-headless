@@ -4,7 +4,7 @@ var fs = require('fs');
 var crypto = require('crypto');
 var util = require('util');
 var constants = require('wntcore/constants.js');
-var desktopApp = require('ocore/desktop_app.js');
+var desktopApp = require('wntcore/desktop_app.js');
 var appDataDir = desktopApp.getAppDataDir();
 var path = require('path');
 
