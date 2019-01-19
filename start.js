@@ -4,9 +4,17 @@ var fs = require('fs');
 var crypto = require('crypto');
 var util = require('util');
 var constants = require('wntcore/constants.js');
+var desktopApp = require('ocore/desktop_app.js');
+var appDataDir = desktopApp.getAppDataDir();
+var path = require('path');
+
+if (require.main === module && !fs.existsSync(appDataDir) && fs.existsSync(path.dirname(appDataDir)+'/headless-byteball')){
+    console.log('=== will rename old data dir');
+    fs.renameSync(path.dirname(appDataDir)+'/headless-byteball', appDataDir);
+}
+
 var conf = require('wntcore/conf.js');
 var objectHash = require('wntcore/object_hash.js');
-var desktopApp = require('wntcore/desktop_app.js');
 var db = require('wntcore/db.js');
 var eventBus = require('wntcore/event_bus.js');
 var ecdsaSig = require('wntcore/signature.js');
@@ -15,8 +23,7 @@ var Mnemonic = require('bitcore-mnemonic');
 var Bitcore = require('bitcore-lib');
 var readline = require('readline');
 
-var appDataDir = desktopApp.getAppDataDir();
-var KEYS_FILENAME = appDataDir + '/' + (conf.KEYS_FILENAME || 'keys.json');
+ var KEYS_FILENAME = appDataDir + '/' + (conf.KEYS_FILENAME || 'keys.json');
 var wallet_id;
 var xPrivKey;
 
