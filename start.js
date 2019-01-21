@@ -8,9 +8,9 @@ var desktopApp = require('wntcore/desktop_app.js');
 var appDataDir = desktopApp.getAppDataDir();
 var path = require('path');
 
-if (require.main === module && !fs.existsSync(appDataDir) && fs.existsSync(path.dirname(appDataDir)+'/headless-byteball')){
+if (require.main === module && !fs.existsSync(appDataDir) && fs.existsSync(path.dirname(appDataDir)+'/wnt-headless')){
     console.log('=== will rename old data dir');
-    fs.renameSync(path.dirname(appDataDir)+'/headless-byteball', appDataDir);
+    fs.renameSync(path.dirname(appDataDir)+'/wnt-headless', appDataDir);
 }
 
 var conf = require('wntcore/conf.js');
@@ -23,7 +23,7 @@ var Mnemonic = require('bitcore-mnemonic');
 var Bitcore = require('bitcore-lib');
 var readline = require('readline');
 
- var KEYS_FILENAME = appDataDir + '/' + (conf.KEYS_FILENAME || 'keys.json');
+var KEYS_FILENAME = appDataDir + '/' + (conf.KEYS_FILENAME || 'keys.json');
 var wallet_id;
 var xPrivKey;
 
