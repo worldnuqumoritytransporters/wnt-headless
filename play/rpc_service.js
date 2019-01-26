@@ -7,6 +7,16 @@
 */
 
 "use strict";
+var fs = require('fs');
+var desktopApp = require('wntcore/desktop_app.js');
+var appDataDir = desktopApp.getAppDataDir();
+var path = require('path');
+
+if (require.main === module && !fs.existsSync(appDataDir) && fs.existsSync(path.dirname(appDataDir)+'/wnt-headless')){
+    console.log('=== will rename old data dir');
+    fs.renameSync(path.dirname(appDataDir)+'/wnt-headless', appDataDir);
+}
+
 var headlessWallet = require('../start.js');
 var conf = require('wntcore/conf.js');
 var eventBus = require('wntcore/event_bus.js');
