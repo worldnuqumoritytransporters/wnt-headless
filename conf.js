@@ -10,7 +10,7 @@ exports.bLight = false;
 exports.storage = 'sqlite';
 
 
-exports.hub = 'hub.wnt.jp';
+exports.hub = 'hub.worldnuqumoritytransporters.com';
 exports.deviceName = 'Headless';
 exports.permanent_pairing_secret = 'randomstring';
 exports.control_addresses = ['DEVICE ALLOWED TO CHAT'];
