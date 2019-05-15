@@ -62,4 +62,4 @@ Payments are the central but not the only type of data that Wnt stores.  In [pla
 
 ## RPC service
 
-By default, no RPC service is enabled.  If you want to manage your headless wallet via JSON-RPC API, e.g. you run an exchange, run [play/rpc_service.js](play/rpc_service.js) instead.  See the [documentation about running RPC service](../../wiki/Running-RPC-service).
+By default, no RPC service is enabled.  If you want to manage your headless wallet via JSON-RPC API, e.g. you run an exchange, run [play/rpc_service.js](play/rpc_service.js) instead.  See the [documentation about running RPC service](../../wiki/RPC-Service).
