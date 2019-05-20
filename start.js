@@ -28,7 +28,7 @@ var wallet_id;
 var xPrivKey;
 
 function replaceConsoleLog(){
-/*	var log_filename = conf.LOG_FILENAME || (appDataDir + '/log.txt');
+	var log_filename = conf.LOG_FILENAME || (appDataDir + '/log.txt');
 	var writeStream = fs.createWriteStream(log_filename);
 	console.log('---------------');
 	console.log('From this point, output will be redirected to '+log_filename);
@@ -38,7 +38,7 @@ function replaceConsoleLog(){
 		writeStream.write(util.format.apply(null, arguments) + '\n');
 	};
 	console.warn = console.log;
-	console.info = console.log;*/
+	console.info = console.log;
 }
 
 function readKeys(onDone){
@@ -79,11 +79,10 @@ function readKeys(onDone){
 			});
 		}
 		else{ // 2nd or later start
-//			rl.question("Passphrase: ", function(passphrase){
-//				rl.close();
-//				if (process.stdout.moveCursor) process.stdout.moveCursor(0, -1);
-//				if (process.stdout.clearLine)  process.stdout.clearLine();
-				var passphrase = '';
+			rl.question("Passphrase: ", function(passphrase){
+				rl.close();
+				if (process.stdout.moveCursor) process.stdout.moveCursor(0, -1);
+				if (process.stdout.clearLine)  process.stdout.clearLine();
 				var keys = JSON.parse(data);
 				var deviceTempPrivKey = Buffer.from(keys.temp_priv_key, 'base64');
 				var devicePrevTempPrivKey = Buffer.from(keys.prev_temp_priv_key, 'base64');
@@ -98,7 +97,7 @@ function readKeys(onDone){
 						});
 					}
 				});
-//      	});
+      	});
 		}
 	});
 }
